@@ -1,0 +1,10 @@
+
+4square:
+  host_url: api.foursquare.com/v2
+  client_id: Z3QKOA4A3TFEWN5QFC3XF3ME2DTQG0KVKTQOZ3BNOVGQ1PFT
+  client_secret: FGLHKUPCSYHONAE3G3TZPPTIVDR0XMOLD2FCTRGXKAGOADX2
+  api_version: 20130815
+
+what3words:
+  host_url: api.what3words.com
+  api_key: BSF9MOL6
