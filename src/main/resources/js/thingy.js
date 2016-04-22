@@ -19,7 +19,7 @@ function getSearchResults() {
 
     var searchTerm = $('#search_field').val();
 
-    $.ajax('./api/venue/near/' + searchTerm, {
+    $.ajax('./api/thing/near/' + searchTerm, {
         success: function(data) {
             console.log('data: ', JSON.stringify(data));
         },
