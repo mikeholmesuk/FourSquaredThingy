@@ -17,7 +17,7 @@ public class Venue {
     @JsonProperty(value = "contact")
     private Contact contact;
     @JsonProperty(value = "location")
-    private Location location;
+    private Address address;
     @JsonProperty(value = "categories")
     private List<Category> categories;
     @JsonProperty(value = "url")
@@ -47,12 +47,12 @@ public class Venue {
         this.contact = contact;
     }
 
-    public Location getLocation() {
-        return location;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public List<Category> getCategories() {

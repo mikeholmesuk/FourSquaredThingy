@@ -10,6 +10,13 @@ public class Result {
     @JsonProperty(value = "response")
     private Response response;
 
+    public Result() {}
+
+    public Result(Meta meta, Response response) {
+        this.meta = meta;
+        this.response = response;
+    }
+
     public Meta getMeta() {
         return meta;
     }

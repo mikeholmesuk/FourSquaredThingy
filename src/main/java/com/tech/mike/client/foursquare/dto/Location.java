@@ -21,13 +21,6 @@ public class Location {
     @JsonProperty(value = "lng")
     private Double longitude;
 
-    @JsonProperty(value = "address")
-    private String address;
-    @JsonProperty(value = "city")
-    private String city;
-    @JsonProperty(value = "postalCode")
-    private String postalCode;
-
     public Double getLatitude() {
         return latitude;
     }
@@ -42,29 +35,5 @@ public class Location {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
     }
 }
