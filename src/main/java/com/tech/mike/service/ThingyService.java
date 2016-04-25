@@ -46,22 +46,25 @@ public class ThingyService {
         }
     }
 
-    @VisibleForTesting
-    protected Thing mapResponseToThing(Response response) {
-        return new Thing("", new GeoLocation(0.00, 0.00), mapVenuesToThingies(response.getVenues()));
+    private Thing mapResponseToThing(Response response) {
+        return new Thing(
+                response.getGeoCode().getWhere(),
+                new GeoLocation(
+                        response.getGeoCode().getFeature().getGeometry().getCentre().getLongitude(),
+                        response.getGeoCode().getFeature().getGeometry().getCentre().getLatitude()
+                ), mapVenuesToThingies(response.getVenues()));
     }
 
-    @VisibleForTesting
-    protected List<Thingy> mapVenuesToThingies(List<Venue> venues) {
+    private List<Thingy> mapVenuesToThingies(List<Venue> venues) {
         List<Thingy> thingies = new ArrayList<Thingy>();
 
         for(Venue venue : venues) {
             thingies.add(new Thingy(
                     venue.getName(),
                     venue.getUrl(),
-                    venue.getLocation().getAddress(),
-                    venue.getLocation().getPostalCode(),
-                    new GeoLocation(venue.getLocation().getLongitude(), venue.getLocation().getLatitude())
+                    venue.getAddress().getAddressLine(),
+                    venue.getAddress().getPostalCode(),
+                    new GeoLocation(venue.getAddress().getLongitude(), venue.getAddress().getLatitude())
             ));
         }
 
