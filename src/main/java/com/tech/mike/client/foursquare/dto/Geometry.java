@@ -1,24 +1,28 @@
 package com.tech.mike.client.foursquare.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.datatype.joda.deser.LocalDateDeserializer;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Geometry {
+    @JsonProperty(value = "center")
+    private Location centre;    // Correcting the spelling
+    @JsonProperty(value = "bounds")
+    private Bounds bounds;
 
+    public Geometry() {}
+
+    public Geometry(Location centre, Bounds bounds) {
+        this.centre = centre;
+        this.bounds = bounds;
+    }
+
+    public Location getCentre() {
+        return centre;
+    }
+
+    public Bounds getBounds() {
+        return bounds;
+    }
 }
-
-//          "geometry": {
-//              "center": {
-//                  "lat": 51.69815,
-//                  "lng": 0.11055
-//              },
-//              "bounds": {
-//                  "ne": {
-//                      "lat": 51.71185359578459,
-//                      "lng": 0.12487559578452827
-//                  },
-//                  "sw": {
-//                      "lat": 51.69364440421522,
-//                      "lng": 0.10666640421515862
-//                   }
-//        }
