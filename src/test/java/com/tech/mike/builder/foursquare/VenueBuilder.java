@@ -1,9 +1,6 @@
 package com.tech.mike.builder.foursquare;
 
-import com.tech.mike.client.foursquare.dto.Category;
-import com.tech.mike.client.foursquare.dto.Contact;
-import com.tech.mike.client.foursquare.dto.Location;
-import com.tech.mike.client.foursquare.dto.Venue;
+import com.tech.mike.client.foursquare.dto.*;
 import uk.org.fyodor.generators.RDG;
 
 import java.util.ArrayList;
@@ -13,7 +10,7 @@ public class VenueBuilder {
     private String id = RDG.string().next();
     private String name = RDG.string().next();
     private Contact contact = new ContactBuilder().build();
-    private Location location;
+    private Address address = new AddressBuilder().build();
     private List<Category> categories = new ArrayList<>();
     private String url = RDG.uri().next().toString();
 
@@ -32,8 +29,8 @@ public class VenueBuilder {
         return this;
     }
 
-    public VenueBuilder withLocation(Location location) {
-        this.location = location;
+    public VenueBuilder withAddress(Address address) {
+        this.address = address;
         return this;
     }
 
@@ -59,7 +56,7 @@ public class VenueBuilder {
         venue.setId(this.id);
         venue.setName(this.name);
         venue.setContact(this.contact);
-        venue.setLocation(this.location);
+        venue.setAddress(this.address);
         venue.setCategories(this.categories);
         venue.setUrl(this.url);
         return venue;
