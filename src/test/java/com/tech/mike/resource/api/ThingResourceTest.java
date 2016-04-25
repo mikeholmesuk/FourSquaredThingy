@@ -2,7 +2,7 @@ package com.tech.mike.resource.api;
 
 import com.tech.mike.builder.ThingBuilder;
 import com.tech.mike.builder.ThingyBuilder;
-import com.tech.mike.exception.WtfException;
+import com.tech.mike.exception.ThingException;
 import com.tech.mike.representation.Thing;
 import com.tech.mike.representation.Thingy;
 import com.tech.mike.service.ThingyService;
@@ -96,7 +96,7 @@ public class ThingResourceTest {
 
         // When
         when(thingyServiceMock.getThingiesForPlaceName(errorGeneratingName)).thenThrow(
-                new WtfException(RDG.string().next(), 500));
+                new ThingException(RDG.string().next(), 500));
         Response response = resources.client().target("/api/thing/near/" + errorGeneratingName).request().get();
 
         // Then

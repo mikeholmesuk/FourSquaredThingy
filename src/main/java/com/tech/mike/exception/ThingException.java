@@ -1,27 +1,27 @@
 package com.tech.mike.exception;
 
-public class WtfException extends RuntimeException {
+public class ThingException extends RuntimeException {
 
     private Integer errorCode;
 
-    public WtfException(String message) {
+    public ThingException(String message) {
         super(message);
     }
 
-    public WtfException(String message, Integer errorCode) {
+    public ThingException(String message, Integer errorCode) {
         super(message);
         this.errorCode = errorCode;
     }
 
-    public WtfException(Throwable throwable) {
+    public ThingException(Throwable throwable) {
         super(throwable);
     }
 
-    public WtfException(String message, Throwable throwable) {
+    public ThingException(String message, Throwable throwable) {
         super(message, throwable);
     }
 
-    public WtfException(String message, Throwable throwable, Integer errorCode) {
+    public ThingException(String message, Throwable throwable, Integer errorCode) {
         super(message, throwable);
         this.errorCode = errorCode;
     }

@@ -2,13 +2,10 @@ package com.tech.mike.service;
 
 import com.tech.mike.builder.foursquare.*;
 import com.tech.mike.client.foursquare.FourSquareClient;
-import com.tech.mike.client.foursquare.dto.GeoCode;
-import com.tech.mike.client.foursquare.dto.Response;
 import com.tech.mike.client.foursquare.dto.Result;
 import com.tech.mike.client.foursquare.dto.Venue;
-import com.tech.mike.exception.WtfException;
+import com.tech.mike.exception.ThingException;
 import com.tech.mike.representation.Thing;
-import com.tech.mike.representation.Thingy;
 import org.junit.Before;
 import org.junit.Test;
 import uk.org.fyodor.generators.RDG;
@@ -87,7 +84,7 @@ public class ThingyServiceTest {
         assertThat(thingResult.getThingies()).isNotNull().isEmpty();
     }
 
-    @Test(expected = WtfException.class)
+    @Test(expected = ThingException.class)
     public void invalidPlaceName_throwsException() {
         // Given
         String randomSearchString = RDG.string().next();

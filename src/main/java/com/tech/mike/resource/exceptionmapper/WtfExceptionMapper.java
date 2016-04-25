@@ -1,6 +1,6 @@
 package com.tech.mike.resource.exceptionmapper;
 
-import com.tech.mike.exception.WtfException;
+import com.tech.mike.exception.ThingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,10 +9,10 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class WtfExceptionMapper implements ExceptionMapper<WtfException> {
+public class WtfExceptionMapper implements ExceptionMapper<ThingException> {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public Response toResponse(WtfException exception) {
+    public Response toResponse(ThingException exception) {
         logger.error("Exception caught: ", exception.getMessage());
 
         return Response

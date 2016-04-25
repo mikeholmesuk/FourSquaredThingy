@@ -1,6 +1,5 @@
 package com.tech.mike.service;
 
-import com.google.common.annotations.VisibleForTesting;
 import com.tech.mike.client.foursquare.FourSquareClient;
 import com.tech.mike.client.foursquare.dto.Response;
 import com.tech.mike.client.foursquare.dto.Result;
@@ -8,7 +7,7 @@ import com.tech.mike.client.foursquare.dto.Venue;
 import com.tech.mike.representation.GeoLocation;
 import com.tech.mike.representation.Thing;
 import com.tech.mike.representation.Thingy;
-import com.tech.mike.exception.WtfException;
+import com.tech.mike.exception.ThingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,18 +30,18 @@ public class ThingyService {
             return mapResponseToThing(result.getResponse());
         }
         else {
-            throw new WtfException(result.getMeta().getErrorDetail(), result.getMeta().getCode());
+            throw new ThingException(result.getMeta().getErrorDetail(), result.getMeta().getCode());
         }
     }
 
-    public Thing getTrendingThingiesForPLaceName(String placeName) throws WtfException {
+    public Thing getTrendingThingiesForPLaceName(String placeName) throws ThingException {
         Result result = fourSquareClient.trendingByPlaceName(placeName);
 
         if (result.getMeta().getCode() >= 200 && result.getMeta().getCode() <300) {
             return mapResponseToThing(result.getResponse());
         }
         else {
-            throw new WtfException(result.getMeta().getErrorDetail(), result.getMeta().getCode());
+            throw new ThingException(result.getMeta().getErrorDetail(), result.getMeta().getCode());
         }
     }
 
