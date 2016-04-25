@@ -5,3 +5,15 @@
 h1 {
     color: #666;
 }
+
+#search_results {
+    margin-top: 1em;
+}
+
+#search_results #map {
+    width: 100%;
+    height: 15em;
+    border: solid 1px #ddd;
+    margin-bottom: 1em;
+}
+

@@ -54,18 +54,15 @@
         </div>
         <hr />
     </div>
-    <div class="row">
-        <div id="map" class="map"></div>
+    <div class="row" id="search_results">
     </div>
 </div>
 <script type="text/javascript">
-    console.log('Running the maps: ');
-
     var map = new ol.Map({
         target: 'map',
         layers: [
             new ol.layer.Tile({
-                source: new ol.source.MapQuest({layer: 'hyb'})
+                source: new ol.source.MapQuest({layer: 'osm'})
             })
         ],
         view: new ol.View({
