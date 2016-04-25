@@ -2,9 +2,12 @@ package com.tech.mike.client.foursquare.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.validation.constraints.NotNull;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GeoCode {
     private String what;
+    @NotNull
     private String where;
     private Feature feature;
 
